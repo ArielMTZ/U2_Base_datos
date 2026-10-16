@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U2 - Actividad 4: Despliegue Continuo (CD)</title>
+    <!-- Tailwind CSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Título -->
+    <header class="bg-gradient-to-r from-indigo-600 to-violet-700 text-white shadow-lg">
+        <div class="max-w-5xl mx-auto px-6 py-8 text-center">
+            <span class="bg-indigo-500/30 text-indigo-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-indigo-400/30">Unidad 2 • Actividad 4</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold mt-2 tracking-tight">Despliegue Continuo (CD) y Pruebas</h1>
+            <p class="text-indigo-200 mt-2 text-sm md:text-base max-w-2xl mx-auto">Demostración práctica del ciclo de pruebas automatizadas, fallos, correcciones y despliegue en GitHub Actions.</p>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full">
+        
+        <!-- Descripción General -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 md:p-8 mb-8">
+            <h2 class="text-xl font-bold text-slate-900 flex items-center gap-3">
+                <i class="fa-solid fa-circle-info text-indigo-600"></i> ¿Para qué sirve esta actividad?
+            </h2>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+                Esta práctica tiene como objetivo comprender la importancia del <strong>Despliegue Continuo (Continuous Deployment - CD)</strong> y la integración de pruebas automatizadas en los flujos de trabajo (pipelines). Permite comprobar cómo un cambio en el repositorio, ya sea una actualización visual o una corrección de código, se refleja automáticamente en producción solo si los tests pasan con éxito.
+            </p>
+        </section>
+
+        <!-- Instrucciones y Pasos Realizados -->
+        <section class="mb-8">
+            <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-indigo-600"></i> Pasos de la Práctica
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Paso 1 -->
+                <div class="bg-white rounded-xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm border border-indigo-100">1</span>
+                            <h4 class="font-semibold text-slate-900">Proyecto base en GitHub 🌐</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Selección de un repositorio existente en GitHub configurado con tests automatizados y un pipeline de despliegue.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-indigo-600 font-medium flex items-center gap-1">
+                        <i class="fa-solid fa-check"></i> Repositorio conectado
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="bg-white rounded-xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 font-bold flex items-center justify-center text-sm border border-rose-100">2</span>
+                            <h4 class="font-semibold text-slate-900">Hacer fallar un test ❌</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Modificación intencional de una prueba para forzar un error y comprobar que el sistema de integración detecta fallos y bloquea el despliegue.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-rose-600 font-medium flex items-center gap-1">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Comprobación de errores
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-white rounded-xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 font-bold flex items-center justify-center text-sm border border-amber-100">3</span>
+                            <h4 class="font-semibold text-slate-900">Modificación del index.html 🔧</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Actualización de este archivo web para reflejar el estado actual del proyecto, documentando los cambios realizados.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-amber-600 font-medium flex items-center gap-1">
+                        <i class="fa-solid fa-code"></i> Interfaz actualizada
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="bg-white rounded-xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 font-bold flex items-center justify-center text-sm border border-emerald-100">4</span>
+                            <h4 class="font-semibold text-slate-900">Corrección y Push Final ✅</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Solución de la prueba suspendida, ejecución de un nuevo commit y verificación de que GitHub Actions completa el despliegue con éxito.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-emerald-600 font-medium flex items-center gap-1">
+                        <i class="fa-solid fa-circle-check"></i> Despliegue exitoso
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección de Evidencias (Espacio para capturas) -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 md:p-8">
+            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-camera text-indigo-600"></i> Evidencias del Pipeline (GitHub Actions)
+            </h3>
+            <p class="text-sm text-slate-600 mb-6">Aquí puedes insertar o visualizar las capturas de pantalla de tus acciones en GitHub:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-2 border-dashed border-slate-200 rounded-xl p-6 text-center bg-slate-50 flex flex-col items-center justify-center min-h-[160px]">
+                    <i class="fa-solid fa-xmark text-rose-400 text-3xl mb-2"></i>
+                    <p class="text-xs font-semibold text-slate-700">Captura de Acciones (Test Fallido ❌)</p>
+                    <span class="text-[11px] text-slate-400 mt-1">Reemplaza con tu imagen o enlace</span>
+                </div>
+                <div class="border-2 border-dashed border-slate-200 rounded-xl p-6 text-center bg-slate-50 flex flex-col items-center justify-center min-h-[160px]">
+                    <i class="fa-solid fa-check text-emerald-500 text-3xl mb-2"></i>
+                    <p class="text-xs font-semibold text-slate-700">Captura de Acciones (Test Exitoso ✅)</p>
+                    <span class="text-[11px] text-slate-400 mt-1">Reemplaza con tu imagen o enlace</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200/80 py-6 text-center text-xs text-slate-500">
+        <p>Unidad 2 • Práctica de Despliegue Continuo (CD) &bull; Hecho para GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
