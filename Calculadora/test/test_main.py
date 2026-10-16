@@ -8,7 +8,7 @@ def ejecutar_calculadora(monkeypatch, respuestas):
 
 
 def test_suma(monkeypatch, capsys):
-    ejecutar_calculadora(monkeypatch, ["1", "2", "3", "8"])
+    ejecutar_calculadora(monkeypatch, ["1", "2", "3", "56.7"])
 
     assert "Resultado: 5.0" in capsys.readouterr().out
 
