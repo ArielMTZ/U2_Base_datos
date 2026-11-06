@@ -1,0 +1,31 @@
+name: Validacion Docker CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pruebas de calculadora en Docker
+        run: docker compose run --build --rm tests
+      - name: Iniciar sitio web
+        run: docker compose up -d web
+      - name: Comprobar respuesta HTTP
+        run: |
+          for i in 1 2 3 4 5; do
+            if curl --fail --silent http://localhost:8080/ > /dev/null; then exit 0; fi
+            sleep 2
+          done
+          docker compose logs web
+          exit 1
+      - name: Estado y registros
+        if: always()
+        run: |
+          docker compose ps
+          docker compose logs web
+      - name: Detener contenedores
+        if: always()
+        run: docker compose down

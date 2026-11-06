@@ -1,6 +1,9 @@
+name: RA-U2-AOMG
+
 services:
   web:
     image: nginx:alpine
+    container_name: servidor-web-RA-u2
     ports:
       - "8080:80"
     volumes:
@@ -9,6 +12,7 @@ services:
 
   tests:
     build: .
+    container_name: tests-python-RA-u2
     command: python -m pytest -q
     profiles:
       - test
