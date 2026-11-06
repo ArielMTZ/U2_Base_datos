@@ -43,7 +43,7 @@ def calculadora():
                 continue
                 
             if opcion == '1':
-                resultado = num1 + num2
+                resultado = num1 - num2
                 operacion = f"{num1} + {num2} = {resultado}"
             elif opcion == '2':
                 resultado = num1 - num2
